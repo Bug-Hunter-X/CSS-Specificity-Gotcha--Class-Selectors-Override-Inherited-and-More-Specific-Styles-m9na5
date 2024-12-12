@@ -1,0 +1,26 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This style will be overridden */
+}
+
+.special p {
+  color: purple; /* This style will take precedence */
+}
+
+<div>
+  <p class="special">This text will be purple.</p>
+  <p>This text will be red.</p>
+</div>
+```
+
+The unexpected behavior lies in the interaction between inheritance, specificity, and the class selector. Although `div p` has higher specificity than `p`, the `.special p` selector has even higher specificity due to the addition of the class selector, thus overriding the other styles.
